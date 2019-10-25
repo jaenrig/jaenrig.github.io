@@ -12,7 +12,8 @@ class library
         void functionA();
         void functionB(int arg);
         int  functionC(int& arg);
-        static functionD(){};
+        static void functionD(){};
+        int functionE();
 };
 
 class something

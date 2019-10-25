@@ -25,3 +25,8 @@ int  library::functionC(int& arg)
 {
     return 1;
 }
+
+int library::functionE(void)
+{
+    return 0;
+}
