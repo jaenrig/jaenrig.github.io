@@ -7,10 +7,6 @@ sudo: required
 branches:
     - master
 
-env:
-    global:
-        - 
-
 addons:
     apt:
         packages:
@@ -22,6 +18,8 @@ install:
 
 script:
     - cd InfineonDoxyGenerator
-    - python doxygen-ifx.py --help
     - python doxygen-ifx.py html
 
+after_success:
+    if: (branch = master) AND (tag IS present) 
+        - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
