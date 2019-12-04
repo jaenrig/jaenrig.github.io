@@ -7,15 +7,21 @@ sudo: required
 branches:
     - master
 
+env:
+    global:
+        - 
+
 addons:
     apt:
         packages:
             - doxygen
+            - graphviz
 
 install:
     - git clone https://github.com/Infineon/InfineonDoxyGenerator.git
-    
+
 script:
     - cd InfineonDoxyGenerator
     - python doxygen-ifx.py --help
+    - python doxygen-ifx.py html
 
