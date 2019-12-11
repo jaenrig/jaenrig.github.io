@@ -7,21 +7,21 @@ sudo: required
 branches:
     - master
 
-stages:
-    - name: Compile
-    - name: Test
-    - name: Deploy
-        if: (branch = master) AND (tag IS present) 
+# stages:
+#     - name: Compile
+#     - name: Test
+#     - name: Deploy
+#         if: (branch = master) AND (tag IS present) 
 
 jobs:
     include:
         - stage: Compile
-            - script: echo "Compiling something"
+            script: echo "Compiling something"
         - stage: Test
-            - script: echo "Running Test 1"
-            - script: echo "Running Test 2"
+            script: echo "Running Test 1"   
+            script: echo "Running Test 2"
         - stage: Deploy
-            - script: echo "Deploying"
+            script: echo "Deploying"
               
 
 
@@ -31,12 +31,12 @@ jobs:
 #             - doxygen
 #             - graphviz
 
-# install:
-#     - git clone https://github.com/Infineon/InfineonDoxyGenerator.git
+install: skip
+    # git clone https://github.com/Infineon/InfineonDoxyGenerator.git
 
-# script:
-#     - cd InfineonDoxyGenerator
-#     - python doxygen-ifx.py html
+script:
+    - cd InfineonDoxyGenerator
+    - python doxygen-ifx.py html
 
 # after_success:
 #     if: (branch = master) AND (tag IS present) 
