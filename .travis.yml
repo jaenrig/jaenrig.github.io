@@ -26,10 +26,10 @@ branches:
 jobs:
   include:
     - stage: Compile 
-      script: echo "Running unit tests (1)"
-    - script: echo "Running unit tests (2)"
+      script: echo "Compiling ..."
+    - script: echo "Testing ..."
     - stage: GitHub Pages Deploy
-      script: echo "Deploying to GitHub releases ..."
+      script: echo "Deploying to GitHub pages ..."
 
 
 # addons:
