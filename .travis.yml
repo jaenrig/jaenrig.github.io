@@ -8,20 +8,13 @@ branches:
     - master
     - /^v.*$/
 
-# stages:
-#     - name: Compile
-#     - name: Test
-#     - name: Deploy
-#         if: (branch = master) AND (tag IS present) 
-
-# addons:
-#     apt:
-#         packages:
-#             - doxygen
-#             - graphviz
-
-install: skip
-    # git clone https://github.com/Infineon/InfineonDoxyGenerator.git
+addons:
+    apt:
+        packages:
+            - doxygen
+            - graphviz
+install: 
+    git clone https://github.com/Infineon/InfineonDoxyGenerator.git
 
 jobs:
   include:
@@ -29,29 +22,20 @@ jobs:
       name: "Compilation"
       script: echo "Compiling ..."
     - stage: Test
-      name: "Unit Testing"
+      name: "Testing"
       script: 
         - echo "Testing ..."
-        - echo "Testing more things..."
-    - script: echo "Something that can run in parallel in same stage ..."
-      name: "Integration Testing"
+    #     - echo "Testing more things..."
+    # - script: echo "Something that can run in parallel in same stage ..."
+    #   name: "Integration Testing"
     - stage: "Deploy" 
       if: tag IS present
       name: "GitHub Pages Deployment"
       script: 
         - echo "Generating Doxygen HTML documentation ..."
-        # - cd InfineonDoxyGenerator
-        # - python doxygen-ifx.py html
+        - cd InfineonDoxyGenerator
+        - python doxygen-ifx.py html
       after_success:
         - echo "sucess"
-#         - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
-
-
-# script:
-#     - echo "Hello World!" 
-    # - cd InfineonDoxyGenerator
-    # - python doxygen-ifx.py html
-
-# after_success:
-#     if: (branch = master) AND (tag IS present) 
+        - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
