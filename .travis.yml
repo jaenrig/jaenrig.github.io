@@ -30,6 +30,7 @@ jobs:
     - stage: Test
       script: echo "Testing ..."
     - stage: GitHub Pages Deploy
+      name: "GitHub Pages deploy"
       script: echo "Deploying to GitHub pages ..."
 
 
