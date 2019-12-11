@@ -35,13 +35,13 @@ jobs:
     - script: echo "Something that can run in parallel in same stage ..."
       name: "Integration Testing"
     - stage: "Deploy"
-      #if: (branch = master) AND (tag IS present) 
-      name: "GitHub Pages Deploy"
+     #if: (branch = master) AND (tag IS present) 
+      name: "GitHub Pages Deployment"
       script: 
         - echo "Generating Doxygen HTML documentation ..."
         # - cd InfineonDoxyGenerator
         # - python doxygen-ifx.py html
-      after_sucess:
+      after_success:
         - echo "sucess"
 #         - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
