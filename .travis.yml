@@ -13,15 +13,14 @@ branches:
 #     - name: Deploy
 #         if: (branch = master) AND (tag IS present) 
 
-# jobs:
-#     include:
-#         - stage: Compile
-#             script: echo "Compiling something"
-#         - stage: Test
-#             script: echo "Running Test 1"   
-#             script: echo "Running Test 2"
-#         - stage: Deploy
-#             script: echo "Deploying"
+# addons:
+#     apt:
+#         packages:
+#             - doxygen
+#             - graphviz
+
+install: skip
+    # git clone https://github.com/Infineon/InfineonDoxyGenerator.git
 
 jobs:
   include:
@@ -35,18 +34,17 @@ jobs:
         - echo "Testing more things..."
     - script: echo "Something that can run in parallel in same stage ..."
       name: "Integration Testing"
-    - stage: "GitHub Pages Deploy"
+    - stage: "Deploy"
+      #if: (branch = master) AND (tag IS present) 
       name: "GitHub Pages Deploy"
-      script: echo "Deploying to GitHub pages ..."
+      script: 
+        - echo "Generating Doxygen HTML documentation ..."
+        # - cd InfineonDoxyGenerator
+        # - python doxygen-ifx.py html
+      after_sucess:
+        - echo "sucess"
+#         - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
-# addons:
-#     apt:
-#         packages:
-#             - doxygen
-#             - graphviz
-
-install: skip
-    # git clone https://github.com/Infineon/InfineonDoxyGenerator.git
 
 # script:
 #     - echo "Hello World!" 
@@ -55,4 +53,4 @@ install: skip
 
 # after_success:
 #     if: (branch = master) AND (tag IS present) 
-#         - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
+
