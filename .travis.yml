@@ -34,6 +34,7 @@ jobs:
       script: 
         - cd InfineonDoxyGenerator
         - python doxygen-ifx.py html
-      after_success:
         - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
+    #   after_success:
+    #     - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
