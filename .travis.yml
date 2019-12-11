@@ -33,6 +33,7 @@ jobs:
       script: 
         - echo "Testing ..."
         - echo "Testing more things..."
+    - script: echo "Something that can run in parallel in same stage ..."
     - stage: "GitHub Pages Deploy"
       name: "GitHub Pages Deploy"
       script: echo "Deploying to GitHub pages ..."
