@@ -32,10 +32,8 @@ jobs:
       if: tag IS present
       name: "GitHub Pages Deployment"
       script: 
-        - echo "Generating Doxygen HTML documentation ..."
         - cd InfineonDoxyGenerator
         - python doxygen-ifx.py html
       after_success:
-        - echo "sucess"
         - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
