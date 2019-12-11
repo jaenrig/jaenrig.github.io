@@ -27,7 +27,8 @@ jobs:
   include:
     - stage: Compile 
       script: echo "Compiling ..."
-    - script: echo "Testing ..."
+    - stage: Test
+      script: echo "Testing ..."
     - stage: GitHub Pages Deploy
       script: echo "Deploying to GitHub pages ..."
 
