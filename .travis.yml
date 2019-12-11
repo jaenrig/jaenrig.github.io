@@ -26,13 +26,16 @@ branches:
 jobs:
   include:
     - stage: Compile 
+      name: "Compilation"
       script: echo "Compiling ..."
     - stage: Test
+      name: "Unit Testing"
       script: echo "Testing ..."
-    - stage: GitHub Pages Deploy
-      name: "GitHub Pages deploy"
+      name: "Integration Testing"
+      script: echo "Testing integration..."
+    - stage: "GitHub Pages Deploy"
+      name: "GitHub Pages Deploy"
       script: echo "Deploying to GitHub pages ..."
-
 
 # addons:
 #     apt:
