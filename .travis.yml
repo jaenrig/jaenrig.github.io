@@ -25,6 +25,7 @@ jobs:
       name: "Testing"
       script: 
         - echo "Testing ..."
+        - git remote -v
     #     - echo "Testing more things..."
     # - script: echo "Something that can run in parallel in same stage ..."
     #   name: "Integration Testing"
