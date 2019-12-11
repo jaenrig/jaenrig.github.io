@@ -13,18 +13,16 @@ branches:
 #     - name: Deploy
 #         if: (branch = master) AND (tag IS present) 
 
-jobs:
-    include:
-        - stage: Compile
-            script: echo "Compiling something"
-        - stage: Test
-            script: echo "Running Test 1"   
-            script: echo "Running Test 2"
-        - stage: Deploy
-            script: echo "Deploying"
+# jobs:
+#     include:
+#         - stage: Compile
+#             script: echo "Compiling something"
+#         - stage: Test
+#             script: echo "Running Test 1"   
+#             script: echo "Running Test 2"
+#         - stage: Deploy
+#             script: echo "Deploying"
               
-
-
 # addons:
 #     apt:
 #         packages:
@@ -35,8 +33,9 @@ install: skip
     # git clone https://github.com/Infineon/InfineonDoxyGenerator.git
 
 script:
-    - cd InfineonDoxyGenerator
-    - python doxygen-ifx.py html
+    - echo "Hello World!" 
+    # - cd InfineonDoxyGenerator
+    # - python doxygen-ifx.py html
 
 # after_success:
 #     if: (branch = master) AND (tag IS present) 
