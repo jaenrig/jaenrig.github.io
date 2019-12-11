@@ -29,9 +29,10 @@ jobs:
       name: "Compilation"
       script: echo "Compiling ..."
     - stage: Test
-        name: "Unit Testing"
-        script: echo "Testing ..."
-        script: echo "Testing integration..."
+      name: "Unit Testing"
+      script: 
+        - echo "Testing ..."
+        - echo "Testing more things..."
     - stage: "GitHub Pages Deploy"
       name: "GitHub Pages Deploy"
       script: echo "Deploying to GitHub pages ..."
