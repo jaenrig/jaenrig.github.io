@@ -22,7 +22,15 @@ branches:
 #             script: echo "Running Test 2"
 #         - stage: Deploy
 #             script: echo "Deploying"
-              
+
+jobs:
+  include:
+    - script: echo "Running unit tests (1)"
+    - script: echo "Running unit tests (2)"
+    - stage: GitHub Release
+      script: echo "Deploying to GitHub releases ..."
+
+
 # addons:
 #     apt:
 #         packages:
