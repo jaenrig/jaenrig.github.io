@@ -31,7 +31,7 @@ jobs:
     - stage: Test
         name: "Unit Testing"
         script: echo "Testing ..."
-      - script: echo "Testing integration..."
+        script: echo "Testing integration..."
     - stage: "GitHub Pages Deploy"
       name: "GitHub Pages Deploy"
       script: echo "Deploying to GitHub pages ..."
