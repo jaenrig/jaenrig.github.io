@@ -14,13 +14,20 @@ addons:
             - doxygen
             - graphviz
 install: 
-    git clone https://github.com/Infineon/InfineonDoxyGenerator.git
+    - pip install -U platformio
+    - platformio platform install -f infineonxmc 
+    - platformio platform install -f atmelavr
+    - git clone https://github.com/Infineon/InfineonDoxyGenerator.git
 
 jobs:
   include:
     - stage: Compile 
       name: "Compilation"
-      script: echo "Compiling ..."
+      env:
+        - matrix:
+            - PLATFORMIO_CI_SRC=examples/exampleA
+      script: 
+            - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno 
     - stage: Test
       name: "Testing"
       script: 
