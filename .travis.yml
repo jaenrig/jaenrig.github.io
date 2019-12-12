@@ -25,7 +25,6 @@ jobs:
       name: "Testing"
       script: 
         - echo "Testing ..."
-        - git remote -v
     #     - echo "Testing more things..."
     # - script: echo "Something that can run in parallel in same stage ..."
     #   name: "Integration Testing"
@@ -34,8 +33,8 @@ jobs:
       name: "GitHub Pages Deployment"
       script: 
         - cd InfineonDoxyGenerator
-        - python doxygen-ifx.py html
-        - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
+        - python doxyifx.py html
+        - python doxyifx.py release $GH_USER $GH_PASS_TOKEN
     #   after_success:
     #     - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
