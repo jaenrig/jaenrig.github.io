@@ -1,4 +1,4 @@
 <map id="something::product" name="something::product">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,139,32"/>
-<area shape="rect" id="node2" href="$d2/dde/classlibrary.html#a5d3a4519237adb767cae799fd91ea8df" title=" " alt="" coords="187,5,305,32"/>
+<area shape="rect" id="node2" href="$d2/dde/classlibrary.html#a5d3a4519237adb767cae799fd91ea8df" title="library::functionD" alt="" coords="200,5,329,32"/>
+<area shape="rect" id="node3" href="$d2/dde/classlibrary.html#a7698104703097af78915f42c056431ec" title="library::functionE" alt="" coords="377,5,504,32"/>
 </map>
