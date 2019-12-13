@@ -39,6 +39,7 @@ jobs:
         - mkdir build && cd build
         - cmake ..
         - cmake --build . 
+        - ctest
     #     - echo "Testing more things..."
     # - script: echo "Something that can run in parallel in same stage ..."
     #   name: "Integration Testing"

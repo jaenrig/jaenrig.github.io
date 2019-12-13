@@ -32,4 +32,4 @@ enable_testing()
 # Add GoogleTest 
 add_subdirectory(googletest)
 # # Add Tests Folder
-# add_subdirectory(tests)
+add_subdirectory(test)
