@@ -42,7 +42,7 @@ jobs:
         - cmake --build . 
         - ctest
       after_success:
-        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator 
+        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build
          
 
     #     - echo "Testing more things..."
