@@ -22,9 +22,17 @@ class libAPI: public ::testing::Test
         }
 };
 
+TEST_F(libAPI, PrettyCoverage)
+{   
+    int value = 1;
+    object.functionA();
+    object.functionB(1);
+    object.functionE();
+}
 
 TEST_F(libAPI, checkFunctionC)
 {   
     int value = 1;
     ASSERT_EQ(object.functionC(value),1);
 }
+
