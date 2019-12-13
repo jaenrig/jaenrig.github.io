@@ -1,4 +1,4 @@
-language: c
+language: python
 python:
     - 3.7
 
@@ -27,11 +27,11 @@ env:
 
 jobs:
   include:
-    - stage: Compile 
-      name: "Compilation"
+    # - stage: Compile 
+    #   name: "Compilation"
 
-      script: 
-            - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno 
+    #   script: 
+    #         - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno 
     - stage: Test
       name: "Testing"
       script: 
