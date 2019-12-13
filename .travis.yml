@@ -42,7 +42,8 @@ jobs:
         - cmake --build . 
         - ctest
       after_success:
-        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -E "build/.*.cpp.*"
+        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -E "build/*.cpp" -E "build/.c" -E "build/.cxx"
+         
          
 
     #     - echo "Testing more things..."
