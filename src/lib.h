@@ -26,7 +26,7 @@ class something
     public:
         something() {};
         something(bool flag, int number, int another_number) : flag(flag), number(number), another_number(another_number) {};
-        void product(){ library::functionD(); return (number*another_number); };
+        int product(){ library::functionD(); return (number*another_number); };
 };
 
 class child: public library

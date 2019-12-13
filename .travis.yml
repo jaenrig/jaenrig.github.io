@@ -33,7 +33,10 @@ jobs:
     - stage: Test
       name: "Testing"
       script: 
-        - echo "Testing ..."
+        - git clone https://github.com/google/googletest.git
+        - mkdir build && cd build
+        - cmake ..
+        - cmake --build . 
     #     - echo "Testing more things..."
     # - script: echo "Something that can run in parallel in same stage ..."
     #   name: "Integration Testing"
