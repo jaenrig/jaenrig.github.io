@@ -26,5 +26,5 @@ class libAPI: public ::testing::Test
 TEST_F(libAPI, checkFunctionC)
 {   
     int value = 1;
-    ASSERT_EQ(object.functionC(value),0);
+    ASSERT_EQ(object.functionC(value),1);
 }
