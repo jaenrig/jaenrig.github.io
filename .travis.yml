@@ -20,7 +20,7 @@ install:
     # - platformio platform install -f infineonxmc 
     # - platformio platform install -f atmelavr
     # - git clone https://github.com/Infineon/InfineonDoxyGenerator.git
-    - pip install --user cpp-coveralls
+      - pip install cpp-coveralls
 
 env:
     matrix:
@@ -42,6 +42,7 @@ jobs:
         - cmake --build . 
         - ctest
       after_success:
+        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator 
          
 
     #     - echo "Testing more things..."
