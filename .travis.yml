@@ -42,7 +42,7 @@ jobs:
         - cmake --build . 
         - ctest
       after_success:
-        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build/CMakeFiles/3.15.2
+        coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build/*.cpp
          
     - stage: "Deploy" 
       if: tag IS present
