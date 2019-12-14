@@ -26,7 +26,7 @@ TEST_F(libAPI, PrettyCoverage)
 {   
     int value = 1;
     object.functionA();
-    object.functionB(1);
+    object.functionB(value);
     object.functionE();
 }
 
