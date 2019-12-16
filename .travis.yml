@@ -41,8 +41,8 @@ jobs:
         - cmake ..
         - cmake --build . 
         - ctest
-      after_success:
         - cmake --build . --target gather_gcov_files
+      after_success: 
         - coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build
          
     - stage: "Deploy" 
