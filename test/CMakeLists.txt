@@ -7,12 +7,21 @@ set(Sources
     test_lib.cpp
 )
 
+file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)    
+
+# Copy relevant coverage out of build folder (workaround for coveralls-cpp)
+add_custom_target(gather_gcov_files
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/../temp_gcov
+    COMMAND ${CMAKE_COMMAND} -E copy ${GCOV_GNNO_GCDA_FILES} ${CMAKE_BINARY_DIR}/../temp_gcov
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    )   
+
 # # GCOV Coverage Targets 
 # set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
 # set(GCOV_FILES_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/arduino-lib-template.dir/src)
 
 # # Binary and Output Coverage Files
-# file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)
+# file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)    
 
 # # Coverage Target
 # add_custom_target(gcov
