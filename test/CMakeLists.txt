@@ -54,7 +54,7 @@ file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)
 add_custom_target(gather_gcov_files
     COMMAND ${CMAKE_COMMAND} -E echo "no problem"
     COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/../temp_gcov
-    # COMMAND ${CMAKE_COMMAND} -E copy ${GCOV_GNNO_GCDA_FILES} ${CMAKE_BINARY_DIR}/../temp_gcov
+    COMMAND ${CMAKE_COMMAND} -E copy ${GCOV_GNNO_GCDA_FILES} ${CMAKE_BINARY_DIR}/../temp_gcov
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     ) 
 
