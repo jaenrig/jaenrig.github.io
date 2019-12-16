@@ -10,7 +10,8 @@ branches:
 
 addons:
     apt:
-        # packages:
+        packages:
+            - cmake-3.15.2
         #     - doxygen
         #     - graphviz
         sources:
@@ -19,7 +20,6 @@ install:
     # - pip install -U platformio
     # - platformio platform install -f infineonxmc 
     # - platformio platform install -f atmelavr
-    # - git clone https://github.com/Infineon/InfineonDoxyGenerator.git --branch v.0.2.0
       - pip install cpp-coveralls
 
 env:
@@ -49,6 +49,7 @@ jobs:
       if: tag IS present
       name: "GitHub Pages Deployment"
       script: 
+        - git clone https://github.com/Infineon/InfineonDoxyGenerator.git --branch v.0.2.0
         - cd InfineonDoxyGenerator
         - python doxyifx.py html
         - python doxyifx.py release $GH_USER $GH_PASS_TOKEN
