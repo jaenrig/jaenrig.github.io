@@ -36,7 +36,7 @@ jobs:
     - stage: Test
       name: "Testing"
       script: 
-        - git clone https://github.com/google/googletest.git
+        - git clone https://github.com/google/googletest.git --branch v1.10.x
         - mkdir build && cd build
         - cmake ..
         - cmake --build . 
