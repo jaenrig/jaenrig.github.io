@@ -12,40 +12,45 @@ addons:
     apt:
         packages:
             - cmake
-        #     - doxygen
-        #     - graphviz
+            - doxygen
+            - graphviz
         sources:
             - ubuntu-toolchain-r-test
 install: 
-    # - pip install -U platformio
-    # - platformio platform install -f infineonxmc 
-    # - platformio platform install -f atmelavr
-      - pip install cpp-coveralls
-
+    - pip install -U platformio
+    - platformio platform install -f infineonxmc 
+    - platformio platform install -f atmelavr
+    
 env:
     matrix:
         - PLATFORMIO_CI_SRC=examples/exampleA
 
 jobs:
   include:
-    # - stage: Compile 
-    #   name: "Compilation"
+    - stage: Compile 
+      name: "Compilation"
 
-    #   script: 
-    #         - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno 
+      script: 
+            - platformio ci --lib="." --board=xmc1100_xmc2go --board=xmc1100_boot_kit --board=xmc4700_relax_kit --board=uno 
     - stage: Test
       name: "Testing"
       script: 
+        # Install cpp-coveralls
+        - pip install cpp-coveralls==0.4.2
+        # Clone Google Test
         - git clone https://github.com/google/googletest.git --branch v1.10.x
+        # Cmake Build and Run Test
         - mkdir build && cd build
         - cmake ..
         - cmake --build . 
         - ctest
       after_success: 
+        # Gather the coverage files into root/coverage folder
         - GCOV_FILES=$(sudo find . | grep '.*\.gc..$')
         - echo $GCOV_FILES
         - mkdir ../coverage
         - cp $GCOV_FILES ../coverage
+        # Call cpp coveralls and upload report
         - coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build
          
     - stage: "Deploy" 
@@ -56,6 +61,4 @@ jobs:
         - cd InfineonDoxyGenerator
         - python doxyifx.py html
         - python doxyifx.py release $GH_USER $GH_PASS_TOKEN
-    #   after_success:
-    #     - python doxygen-ifx.py release $GH_USER $GH_PASS_TOKEN
 
