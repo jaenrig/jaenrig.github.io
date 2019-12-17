@@ -42,8 +42,10 @@ jobs:
         - cmake --build . 
         - ctest
       after_success: 
-        - GCOV_FILE=$($(find . | grep '.*\.gc..$'))
+        - GCOV_FILES=$(sudo find . | grep '.*\.gc..$')
         - echo $GCOV_FILES
+        - mkdir ../coverage
+        - cp $GCOV_FILES ../coverage
         - coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build
          
     - stage: "Deploy" 
