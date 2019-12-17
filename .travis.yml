@@ -41,8 +41,9 @@ jobs:
         - cmake ..
         - cmake --build . 
         - ctest
-        - cmake --build . --target gather_gcov_files
       after_success: 
+        - GCOV_FILE=$($(find . | grep '.*\.gc..$'))
+        - echo $GCOV_FILES
         - coveralls --root .. -e test -e googletest -e docs -e InfineonDoxyGenerator -e build
          
     - stage: "Deploy" 
