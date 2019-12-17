@@ -48,16 +48,6 @@ target_link_libraries(${prjtest} PUBLIC
     pilotifx
 )
 
-file(GLOB_RECURSE GCOV_GNNO_GCDA_FILES ${CMAKE_BINARY_DIR}/*.gc??)    
-
-# Copy relevant coverage out of build folder (workaround for coveralls-cpp)
-add_custom_target(gather_gcov_files
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/../temp_gcov
-    COMMAND ${CMAKE_COMMAND} -E echo ${GCOV_GNNO_GCDA_FILES}
-    #COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_BINARY_DIR}/../src/lib.h ${CMAKE_BINARY_DIR}/../temp_gcov
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-    ) 
-
 # Add Ctest
 add_test(
     NAME ${prjtest}
