@@ -1,0 +1,29 @@
+{% extends "!layout.html" %}
+  {% block footer %} {{ super() }}
+
+  <style>
+    /* Sidebar header (and topbar for mobile) */
+    .wy-side-nav-search, .wy-nav-top {
+      background: rgb(53, 161, 180);
+    }
+    /* Sidebar */
+    .wy-nav-side {
+      background: rgb(53, 161, 180);
+    }
+
+    .wy-menu-vertical header, .wy-menu-vertical p.caption {
+    color: white;
+    height: 32px;
+    display: inline-block;
+    line-height: 32px;
+    padding: 0 1.618em;
+    margin: 12px 0 0 0;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    white-space: nowrap;
+    }
+}
+  </style>
+{% endblock %}

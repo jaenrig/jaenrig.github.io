@@ -31,5 +31,12 @@ enable_testing()
 
 # Add GoogleTest 
 add_subdirectory(googletest)
+
 # # Add Tests Folder
 add_subdirectory(test)
+
+# Add the cmake folder so the FindSphinx module is found
+set(CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
+
+# Documenation folder
+add_subdirectory ("docs")
