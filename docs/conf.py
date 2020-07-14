@@ -87,14 +87,14 @@ html_theme_options = {
 	"body_text_align" : "justify",
 }
 
-# html_theme_path = [sphinx_theme_pd.get_html_theme_path()]
+html_theme_path = [sphinx_theme_pd.get_html_theme_path()]
 
 html_logo = 'img/donquijote_rocinante.jpg'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_templates']
+html_static_path = ['_static']
 
 # Breathe Configuration
 breathe_default_project = "pilotifx"
