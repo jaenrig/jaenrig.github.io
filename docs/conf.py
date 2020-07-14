@@ -87,7 +87,7 @@ html_theme_options = {
 	"body_text_align" : "justify",
 }
 
-html_theme_path = [sphinx_theme_pd.get_html_theme_path()]
+#html_theme_path = [sphinx_theme_pd.get_html_theme_path()]
 
 html_logo = 'img/donquijote_rocinante.jpg'
 
