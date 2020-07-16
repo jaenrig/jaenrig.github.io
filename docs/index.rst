@@ -20,3 +20,4 @@ Nothing is really triggers without changes here. Some...
 This is an example of a class taken from doxygen:
 
 .. doxygenclass:: library
+    :members:
