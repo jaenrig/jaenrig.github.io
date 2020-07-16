@@ -32,11 +32,11 @@ read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
 
 breathe_projects = {}
 if read_the_docs_build:
-	#input_dir = '../df'
+	input_dir = '../src'
 	output_dir = 'build'
 	output_dox_dir = 'docs/doxygen/build'
-	#configureDoxyfile(input_dir, output_dir)
-	#subprocess.call('doxygen', shell=True)
+	configureDoxyfile(input_dir, output_dir)
+	subprocess.call('doxygen', shell=True)
 	breathe_projects['pilotifx'] = output_dir + '/xml'
 
 
